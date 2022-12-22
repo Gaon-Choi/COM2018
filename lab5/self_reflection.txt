@@ -1,0 +1,63 @@
+You must answer at least 4 questions, but the remaining ones are optional. The main goal of this file is to get you thinking critically about your own work, but we will also use these self reflections at the end of the semester when we do our internal review of the course.
+
+ArrayDeque:
+
+Q: Give an example of at least one idea from the staff solution that would have made your solution better (if any).
+
+A: I think that the TA implemented .equals method perfectly. The detailed design is to check the type first, and checking their .size() and finally checking each element with for loop. This method can run on every Object type which has higher generality.
+
+Q: What's something you felt proud of in your code, if anything?
+
+A: In adding new element and removing an element, there needs location information for the insertion / removal. I implemented them in updateFront and updateRear. Defining two constants ADD_MODE and DEL_MODE, I used only one method for the two cases. (-> efficiency in code style)
+
+Q: What's something that was particularly inelegant in your code, if anything?
+
+A: I didn't use "arraycopy" for resizing. It means that I copied every elements one by one with for loop. As same as the TA's code, using "arraycopy" will make the code simpler.
+
+Q: What did you learn by talking to your partner about writing ArrayDeque?
+
+A: In the "get" method, Sooyoung Kim checked the IndexBound explicitly, however, I used modular operation which is implicit.
+
+Q: What do you wish you would have known before writing ArrayDeque, if anything?
+
+A: I think it would be nice if I can analyze the performance difference in terms of the factor in resizing. In the assignment, we doubled the size if it is full, and shrinked it into the quarter size of the original size. What if we triple the container instead of doubling it?
+
+Q: If you wrote ArrayDeque again, what would you do differently, if anything?
+
+A: 
+
+-----
+
+LinkedListDeque:
+
+Q: Give an example of at least one idea from the staff solution that would have made your solution better (if any).
+
+A: The design of the TA is Serial Deque, not the Circular Deque. When I implemented the deque with circular deque, bugs occured frequently, and it took a long time to implement. On the other hand, I think the Serial deque design is a useful design in that it is intuitive.
+
+Q: What's something you felt proud of in your code, if anything?
+
+A: I applied "interface" concept while implementing iterator for LinkedListDeque. In the LinkedListDequeIterator class, I implemented hasNext() and next() to fully design an iterator. I also made them "private" to hide the detail from the users.
+
+Q: What's something that was particularly inelegant in your code, if anything?
+
+A: There are some codes that is seemingly intuitive but not efficient. For example, when removing the last element, we don't have to touch all node pointer for the to-be-deleted node, because we just rearrange the neighboring nodes' pointers and make the to-be-deleted node as "null"(garbage-collector).
+
+Q: What did you learn by talking to your partner about writing LinkedListDeque?
+
+A: Sooyoung Kim made two constructors for ItemNode class. One is for the first sentinel node, and the other is for general case(inserting new node). In contrast, I made only one constructor, which made me call the constructor and assign every member variables one by one (it is more complicated..).
+
+Q: What do you wish you would have known before writing LinkedListDeque, if anything?
+
+A: Regarding the doubly-linked list and its sentinel node, there are two design options: two sentinel topology and circular sentinel topology. I chose the latter one, circular sentinel topology, because the specifications said "I prefer the circular approach.". However, I think it would be good if I can analyze the difference between the two design in terms of performance.
+
+Q: If you wrote LinkedListDeque again, what would you do differently, if anything?
+
+A: I would implement LinkedListDeque based on "two sentinel topology".
+
+-----
+
+Meta:
+
+Q: Did you like this design review process? Anything we should do differently next time?
+
+A: 
